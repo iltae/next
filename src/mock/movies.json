@@ -1,0 +1,111 @@
+[
+  {
+    "Title": "Iron Man",
+    "Year": "2008",
+    "Rated": "PG-13",
+    "Released": "02 May 2008",
+    "Runtime": "126 min",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Director": "Jon Favreau",
+    "Writer": "Mark Fergus, Hawk Ostby, Art Marcum",
+    "Actors": "Robert Downey Jr., Gwyneth Paltrow, Terrence Howard",
+    "Plot": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+    "Language": "English, Persian, Urdu, Arabic, Kurdish, Hindi, Hungarian",
+    "Country": "United States, Canada",
+    "Awards": "Nominated for 2 Oscars. 24 wins & 73 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.9/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "79/100"
+      }
+    ],
+    "Metascore": "79",
+    "imdbRating": "7.9",
+    "imdbVotes": "1,153,009",
+    "imdbID": "tt0371746",
+    "Type": "movie",
+    "DVD": "N/A",
+    "BoxOffice": "$319,034,126",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+  },
+  {
+    "Title": "Squid Game",
+    "Year": "2021–2025",
+    "Rated": "TV-MA",
+    "Released": "17 Sep 2021",
+    "Runtime": "N/A",
+    "Genre": "Action, Drama, Mystery",
+    "Director": "N/A",
+    "Writer": "Hwang Dong-hyuk",
+    "Actors": "Lee Jung-jae, Tom Choi, Greg Chun",
+    "Plot": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits with deadly high stakes: a survival game that has a whopping 45.6 billion-won prize at stake.",
+    "Language": "Korean, English, Urdu",
+    "Country": "South Korea",
+    "Awards": "Won 6 Primetime Emmys. 46 wins & 92 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5NjY0NGEtMDFhOS00MzJiLTg1NWEtZDhhNWQ5MmE4ZWIxXkEyXkFqcGc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.0/10"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.0",
+    "imdbVotes": "629,257",
+    "imdbID": "tt10919420",
+    "Type": "series",
+    "totalSeasons": "3",
+    "Response": "True"
+  },
+  {
+    "Title": "Cast Away",
+    "Year": "2000",
+    "Rated": "PG-13",
+    "Released": "22 Dec 2000",
+    "Runtime": "143 min",
+    "Genre": "Adventure, Drama, Romance",
+    "Director": "Robert Zemeckis",
+    "Writer": "William Broyles Jr.",
+    "Actors": "Tom Hanks, Helen Hunt, Paul Sanchez",
+    "Plot": "A FedEx executive undergoes a physical and emotional transformation after crash landing on a deserted island.",
+    "Language": "English, Russian",
+    "Country": "United States",
+    "Awards": "Nominated for 2 Oscars. 15 wins & 36 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOGNjNDI5ZGQtZjRjMy00NzQyLWFiYzQtYjcwNjM3ZDYwNThhXkEyXkFqcGc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "89%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "74/100"
+      }
+    ],
+    "Metascore": "74",
+    "imdbRating": "7.8",
+    "imdbVotes": "658,248",
+    "imdbID": "tt0162222",
+    "Type": "movie",
+    "DVD": "N/A",
+    "BoxOffice": "$233,632,142",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+  }
+]
