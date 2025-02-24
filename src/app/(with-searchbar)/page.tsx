@@ -4,14 +4,14 @@ import movies from "@/mock/movies.json";
 export default function Home() {
   return (
     <div>
-      <section>
-        <h3>추천 영화</h3>
+      <section className="mb-4 border-b">
+        <h3 className="mb-4 text-lg font-semibold">Hot Movies</h3>
         {movies.map((movie) => (
           <MovieItem key={movie.imdbID} {...movie} />
         ))}
       </section>
-      <section>
-        <h3>모든 영화</h3>
+      <section className="border-b">
+        <h3 className="mb-4 text-lg font-semibold">All Movies</h3>
         {movies.map((movie) => (
           <MovieItem key={movie.imdbID} {...movie} />
         ))}

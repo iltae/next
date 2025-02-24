@@ -51,15 +51,20 @@ export default async function Page({
 
   return (
     <div>
-      <div style={{ backgroundImage: `url('${Poster}')` }}>
-        <img src={Poster} alt="movie poster" />
+      <div
+        style={{ backgroundImage: `url('${Poster}')` }}
+        className="before-poster relative flex justify-center bg-opacity-5 bg-cover bg-center bg-no-repeat p-[20px]"
+      >
+        <img src={Poster} alt="movie poster" className="z-10 max-h-[350px]" />
       </div>
-      <div>{Title}</div>
-      <div>
-        {Director} | {Released}
+      <div className="mt-4 flex flex-col gap-4">
+        <div className="text-xl font-semibold">{Title}</div>
+        <div>
+          {Director} | {Released}
+        </div>
+        <div>{Actors}</div>
+        <div className="keep-all">{Plot}</div>
       </div>
-      <div>{Actors}</div>
-      <div>{Plot}</div>
     </div>
   );
 }

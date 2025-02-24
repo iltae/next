@@ -30,9 +30,19 @@ export default function Searchbar() {
   };
 
   return (
-    <div>
-      <input value={search} onChange={onChangeSearch} onKeyDown={onKeyDown} />
-      <button onClick={onSubmit}>검색</button>
+    <div className="mb-4 w-full">
+      <input
+        value={search}
+        onChange={onChangeSearch}
+        onKeyDown={onKeyDown}
+        className="mr-4 w-2/3 rounded border-2 border-gray-50 pl-2"
+      />
+      <button
+        onClick={onSubmit}
+        className="rounded border-2 border-gray-50 px-2"
+      >
+        검색
+      </button>
     </div>
   );
 }

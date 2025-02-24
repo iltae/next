@@ -10,10 +10,10 @@ export default function MovieItem({
   Production,
 }: MovieData) {
   return (
-    <Link href={`/movie/${imdbID}`}>
-      <img src={Poster} />
+    <Link href={`/movie/${imdbID}`} className="mb-4 flex w-full gap-4">
+      <img src={Poster} className="h-auto w-1/3" />
       <div>
-        <div>{Title}</div>
+        <div className="text-lg font-extrabold">{Title}</div>
         <div>{Genre}</div>
         <br />
         <div>
