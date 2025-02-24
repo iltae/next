@@ -19,10 +19,10 @@ export interface MovieData {
   imdbVotes: string;
   imdbID: string;
   Type: string;
-  DVD: string | null;
-  BoxOffice: string;
-  Production: string | null;
-  Website: string | null;
+  DVD?: string;
+  BoxOffice?: string;
+  Production?: string;
+  Website?: string;
   Response: string;
 }
 
