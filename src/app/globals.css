@@ -1,7 +1,14 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .before-poster::before {
+    @apply absolute left-0 top-0 h-full w-full bg-black bg-opacity-70 content-[''];
+  }
+}
+
+/*
 :root {
   --background: #ffffff;
   --foreground: #171717;
