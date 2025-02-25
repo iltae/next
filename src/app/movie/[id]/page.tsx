@@ -1,44 +1,7 @@
-const mockData = {
-  Title: "Iron Man",
-  Year: "2008",
-  Rated: "PG-13",
-  Released: "02 May 2008",
-  Runtime: "126 min",
-  Genre: "Action, Adventure, Sci-Fi",
-  Director: "Jon Favreau",
-  Writer: "Mark Fergus, Hawk Ostby, Art Marcum",
-  Actors: "Robert Downey Jr., Gwyneth Paltrow, Terrence Howard",
-  Plot: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-  Language: "English, Persian, Urdu, Arabic, Kurdish, Hindi, Hungarian",
-  Country: "United States, Canada",
-  Awards: "Nominated for 2 Oscars. 24 wins & 73 nominations total",
-  Poster:
-    "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
-  Ratings: [
-    {
-      Source: "Internet Movie Database",
-      Value: "7.9/10",
-    },
-    {
-      Source: "Rotten Tomatoes",
-      Value: "94%",
-    },
-    {
-      Source: "Metacritic",
-      Value: "79/100",
-    },
-  ],
-  Metascore: "79",
-  imdbRating: "7.9",
-  imdbVotes: "1,153,009",
-  imdbID: "tt0371746",
-  Type: "movie",
-  DVD: "N/A",
-  BoxOffice: "$319,034,126",
-  Production: "N/A",
-  Website: "N/A",
-  Response: "True",
-};
+/*
+클라이언트 컴퍼넌트에는 async 키워드를 사용할 수 없음
+브라우저에서 동작 시 문제를 일으킬 수 있기 때문에 권장되지 않음
+*/
 
 export default async function Page({
   params,
@@ -47,7 +10,11 @@ export default async function Page({
 }) {
   const { id } = await params;
 
-  const { imdbID, Title, Released, Plot, Director, Actors, Poster } = mockData;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&i=${id}`);
+  if (!response.ok) return <div>something went wrong...</div>;
+  const movie = await response.json();
+
+  const { imdbID, Title, Released, Plot, Director, Actors, Poster } = movie;
 
   return (
     <div>

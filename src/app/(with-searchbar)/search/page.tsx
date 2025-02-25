@@ -4,18 +4,23 @@
 
 import MovieItem from "@/components/movie-item";
 import movies from "@/mock/movies.json";
+import { MovieData } from "@/types";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ q: string }>;
+  searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=${q}`);
+  if (!response.ok) return <div>something went wrong...</div>;
+  const movie: MovieData = await response.json();
   return (
     <div>
-      {movies.map((movie) => (
+      {/* {movies.map((movie) => (
         <MovieItem key={movie.imdbID} {...movie} />
-      ))}
+      ))} */}
+      <MovieItem key={movie.imdbID} {...movie} />
     </div>
   );
 }
