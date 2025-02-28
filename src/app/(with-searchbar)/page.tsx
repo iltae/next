@@ -2,7 +2,9 @@ import MovieItem from "@/components/movie-item";
 import { MovieData } from "@/types";
 
 async function AllMovies() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=iron`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=iron`, {
+    cache: "force-cache",
+  });
   if (!response.ok) return <div>something went wrong...</div>;
   const allMovies: MovieData = await response.json();
   console.log(allMovies);
@@ -17,7 +19,9 @@ async function AllMovies() {
 }
 
 async function HotMovies() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=29`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=29`, {
+    next: { revalidate: 3 },
+  });
   if (!response.ok) return <div>something went wrong...</div>;
   const hotMovies: MovieData = await response.json();
   return (
