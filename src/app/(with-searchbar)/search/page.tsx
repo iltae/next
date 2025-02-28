@@ -14,6 +14,11 @@ Revalidate 가능
 빌드 타임에 페이지 생성
 */
 
+/* 
+클라이언트 라우터 캐시 - RSC Payload에서 중복된 레이아웃을 저장
+새로고침하면 사라짐
+*/
+
 import MovieItem from "@/components/movie-item";
 import { MovieData } from "@/types";
 
