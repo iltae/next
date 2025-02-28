@@ -1,6 +1,13 @@
 import MovieItem from "@/components/movie-item";
 import { MovieData } from "@/types";
 
+// 페이지를 강제로 Dynamic 또는 Static으로 바꿀 수 있음 - 별로 권장하지 않음
+// 1. auto : 기본값, 어떠한 것도 강제하지 않음
+// 2. force-dynamic : 강제로 Dynamic 페이지로 변경
+// 3. force-static : 강제로 Static 페이지로 변경
+// 4. error : 강제로 Static 페이지로 변경(동적 함수나 캐시 적용 안할 경우 빌드 시 에러)
+export const dynamic = "auto";
+
 async function AllMovies() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=iron`, {
     cache: "force-cache",
