@@ -14,7 +14,7 @@ export default async function Page({
   if (!response.ok) return <div>something went wrong...</div>;
   const movie = await response.json();
 
-  const { imdbID, Title, Released, Plot, Director, Actors, Poster } = movie;
+  const { Title, Released, Plot, Director, Actors, Poster } = movie;
 
   return (
     <div>

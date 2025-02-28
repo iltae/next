@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation"; // next-navigation
 
 export default function Searchbar() {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams(); // 비동기 함수로 쿼리스트링이 존재하면 동작
   const [search, setSearch] = useState("");
 
   const q = searchParams.get("q"); // app router 부턴 router 객체에 query가 없음
@@ -35,7 +35,7 @@ export default function Searchbar() {
         value={search}
         onChange={onChangeSearch}
         onKeyDown={onKeyDown}
-        className="mr-4 w-2/3 rounded border-2 border-gray-50 pl-2"
+        className="mr-4 w-2/3 rounded border-2 border-gray-300 pl-2"
       />
       <button
         onClick={onSubmit}

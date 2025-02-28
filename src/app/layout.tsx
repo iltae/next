@@ -18,7 +18,7 @@ export default function RootLayout({
           <main>{children}</main>
         </div>
         <footer className="w-full max-w-xl bg-white px-4 pb-4">
-          made by iltae
+          made by iltae 😊
         </footer>
       </body>
     </html>
