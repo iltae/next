@@ -3,6 +3,17 @@
 브라우저에서 동작 시 문제를 일으킬 수 있기 때문에 권장되지 않음
 */
 
+import { notFound } from "next/navigation";
+
+// export const dynamicParams = false;
+// 위 코드를 적용하면 빌드 시 생성된 파라미터 외엔 적용하지 않음
+
+// 유효한 파라미터를 설정하여 빌드타임에 페이지 생성 가능
+// 페이지의 데이터 페칭도 자동으로 캐싱 처리
+export function generateStaticParams() {
+  return [{ id: "tt8370368" }, { id: "tt0371746" }];
+}
+
 export default async function Page({
   params,
 }: {
@@ -11,7 +22,12 @@ export default async function Page({
   const { id } = await params;
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&i=${id}`);
-  if (!response.ok) return <div>something went wrong...</div>;
+  if (!response.ok) {
+    if (response.status === 404) {
+      notFound();
+    }
+    return <div>something went wrong...</div>;
+  }
   const movie = await response.json();
 
   const { Title, Released, Plot, Director, Actors, Poster } = movie;
