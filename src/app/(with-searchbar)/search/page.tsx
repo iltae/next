@@ -23,7 +23,9 @@ export default async function Page({
   searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=${q}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=${q}`, {
+    cache: "force-cache",
+  }); // 검색 결과를 캐싱하기에 한 번 검색한 결과는 응답을 빠르게 해줄 수 있음
   if (!response.ok) return <div>something went wrong...</div>;
   const movie: MovieData = await response.json();
   return (
