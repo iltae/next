@@ -21,18 +21,15 @@ Revalidate 가능
 
 import MovieItem from "@/components/movie-item";
 import { MovieData } from "@/types";
+import { Suspense } from "react";
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>;
-}) {
-  const { q } = await searchParams;
+async function SearchResult({ q }: { q: string }) {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&t=${q}`, {
     cache: "force-cache",
   }); // 검색 결과를 캐싱하기에 한 번 검색한 결과는 응답을 빠르게 해줄 수 있음
   if (!response.ok) return <div>something went wrong...</div>;
   const movie: MovieData = await response.json();
+
   return (
     <div>
       {/* {movies.map((movie) => (
@@ -40,5 +37,18 @@ export default async function Page({
       ))} */}
       <MovieItem key={movie.imdbID} {...movie} />
     </div>
+  );
+}
+
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { q?: string };
+}) {
+  return (
+    // key -> 렌더링을 갱신할 값
+    <Suspense key={searchParams.q || ""} fallback={<div>Loading...</div>}>
+      <SearchResult q={searchParams.q || ""} />
+    </Suspense>
   );
 }
