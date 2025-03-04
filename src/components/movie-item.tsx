@@ -11,7 +11,7 @@ export default function MovieItem({
 }: MovieData) {
   return (
     <Link href={`/movie/${imdbID}`} className="mb-4 flex w-full gap-4">
-      <img src={Poster} className="h-auto w-1/3" />
+      <img src={Poster} className="h-auto w-[120px]" />
       <div>
         <div className="text-lg font-extrabold">{Title}</div>
         <div>{Genre}</div>

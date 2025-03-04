@@ -1,4 +1,6 @@
 import MovieItem from "@/components/movie-item";
+import MovieItemSkeleton from "@/components/skeleton/movie-item-skeleton";
+import MovieListSkeleton from "@/components/skeleton/movie-list.skeleton";
 import { MovieData } from "@/types";
 import { Suspense } from "react";
 
@@ -47,13 +49,13 @@ export default function Home() {
     <div>
       <section className="mb-4 border-b">
         <h3 className="mb-4 text-lg font-semibold">Hot Movies</h3>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<MovieListSkeleton count={2} />}>
           <HotMovies />
         </Suspense>
       </section>
       <section className="border-b">
         <h3 className="mb-4 text-lg font-semibold">All Movies</h3>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<MovieItemSkeleton />}>
           <AllMovies />
         </Suspense>
       </section>

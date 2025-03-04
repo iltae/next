@@ -20,6 +20,8 @@ Revalidate 가능
 */
 
 import MovieItem from "@/components/movie-item";
+import MovieItemSkeleton from "@/components/skeleton/movie-item-skeleton";
+import MovieListSkeleton from "@/components/skeleton/movie-list.skeleton";
 import { MovieData } from "@/types";
 import { Suspense } from "react";
 
@@ -47,7 +49,10 @@ export default function Page({
 }) {
   return (
     // key -> 렌더링을 갱신할 값
-    <Suspense key={searchParams.q || ""} fallback={<div>Loading...</div>}>
+    <Suspense
+      key={searchParams.q || ""}
+      fallback={<MovieListSkeleton count={2} />}
+    >
       <SearchResult q={searchParams.q || ""} />
     </Suspense>
   );
