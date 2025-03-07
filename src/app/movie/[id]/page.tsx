@@ -4,6 +4,7 @@
 */
 
 import { notFound } from "next/navigation";
+import { createReviewAction } from "@/actions/create-review.action";
 
 // export const dynamicParams = false;
 // 위 코드를 적용하면 빌드 시 생성된 파라미터 외엔 적용하지 않음
@@ -46,19 +47,13 @@ async function MovieDetail({ id }: { id: string }) {
   );
 }
 
-function ReviewEditor() {
-  async function createReviewAction(formData: FormData) {
-    "use server";
-    // 이 코드를 실행하는 서버 api를 만듬(서버 액션의 해시값을 통해 호출)
-    // 간결하고 보안성도 좋음
-    const content = formData.get("content")?.toString();
-    const author = formData.get("author")?.toString();
-  }
+function ReviewEditor({ id }: { id: string }) {
   return (
     <section>
       <form action={createReviewAction}>
-        <input name="content" placeholder="리뷰 내용" />
-        <input name="author" placeholder="작성자" />
+        <input name="bookId" value={id} hidden readOnly />
+        <input name="content" placeholder="리뷰 내용" required />
+        <input name="author" placeholder="작성자" required />
         <button>작성하기</button>
       </form>
     </section>
@@ -70,7 +65,7 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className="flex flex-col gap-2">
       <MovieDetail id={id} />
-      <ReviewEditor />
+      <ReviewEditor id={id} />
     </div>
   );
 }
