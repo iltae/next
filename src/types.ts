@@ -30,3 +30,11 @@ interface Rating {
   Source: string;
   Value: string;
 }
+
+export interface ReviewData {
+  id: number;
+  content: string;
+  author: string;
+  createdAt: string;
+  bookId: number;
+}
