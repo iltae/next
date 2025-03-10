@@ -1,4 +1,5 @@
 import { ReviewData } from "@/types";
+import ReviewItemDeleteButton from "./review-item-delete-button";
 
 export default function ReviewItem({
   id,
@@ -13,7 +14,7 @@ export default function ReviewItem({
       <div>{content}</div>
       <div>
         <div>{new Date(createdAt).toLocaleString()}</div>
-        <button>삭제</button>
+        <ReviewItemDeleteButton reviewId={id} movieId={movieId} />
       </div>
     </div>
   );
