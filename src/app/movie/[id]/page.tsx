@@ -51,7 +51,7 @@ async function MovieDetail({ id }: { id: string }) {
 
 async function ReviewList({ id }: { id: string }) {
   const response = await fetch(
-    `${process.env.NEXT_SERVER_API_URL}/review/book/${id}`,
+    `${process.env.NEXT_SERVER_API_URL}/review/movie/${id}`,
   );
 
   if (!response.ok)

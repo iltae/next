@@ -4,7 +4,7 @@ export default function ReviewEditor({ id }: { id: string }) {
   return (
     <section>
       <form action={createReviewAction} className="flex flex-col gap-2">
-        <input name="bookId" value={id} hidden readOnly />
+        <input name="movieId" value={id} hidden readOnly />
         <textarea
           name="content"
           placeholder="리뷰 내용"

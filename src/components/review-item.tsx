@@ -5,7 +5,7 @@ export default function ReviewItem({
   content,
   author,
   createdAt,
-  bookId,
+  movieId,
 }: ReviewData) {
   return (
     <div>
