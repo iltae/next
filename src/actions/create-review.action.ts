@@ -20,7 +20,17 @@ export async function createReviewAction(formData: FormData) {
       },
     );
     console.log(response.status);
-    revalidatePath(`/movie/${movieId}`); // 페이지 재검증 요청 메서드, 서버측에서만 호출 가능, 페이지 모든 캐시 무효화, 풀라우트 캐시 무효화, 새로고침하면 다이내믹 페이지 생성
+    revalidatePath(`/movie/${movieId}`); // 페이지 재검증 요청 메서드, 서버측에서만 호출 가능, 페이지 모든 캐시 무효화, 풀라우트 캐시 무효화, 다음 요청에서 다이내믹 페이지 생성
+    /*
+    - 특정 경로의 모든 동적 페이지 재검증 (폴더 또는 파일의 경로 명시)
+    revalidatePath("/book/[id]", "page");
+    - 특정 레이아웃을 갖는 모든 페이지 재검증
+    revalidatePath("/(with-searchbar)", "layout");
+    - 모든 데이터 재검증
+    revalidatePath("/", "layout");
+    - 태그 기준, 데이터 캐시 재검증(가장 효율적)
+    revalidateTag(`review-${movieId}`); -- { next : { tags : [`review-${movieId}`] }} -- 요청에 태그 설정
+    */
   } catch (err) {
     console.error(err);
     return;
