@@ -3,8 +3,10 @@ import Link from "next/link";
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -20,6 +22,7 @@ export default function RootLayout({
         <footer className="w-full max-w-xl bg-white px-4 pb-4">
           made by iltae 😊
         </footer>
+        {modal}
         <div id="modal-root"></div>
       </body>
     </html>
