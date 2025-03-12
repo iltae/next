@@ -20,6 +20,7 @@ export default function RootLayout({
         <footer className="w-full max-w-xl bg-white px-4 pb-4">
           made by iltae 😊
         </footer>
+        <div id="modal-root"></div>
       </body>
     </html>
   );
