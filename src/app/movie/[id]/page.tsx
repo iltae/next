@@ -4,6 +4,7 @@
 */
 
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { ReviewData } from "@/types";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
@@ -35,7 +36,12 @@ async function MovieDetail({ id }: { id: string }) {
         style={{ backgroundImage: `url('${Poster}')` }}
         className="before-poster relative flex justify-center bg-opacity-5 bg-cover bg-center bg-no-repeat p-[20px]"
       >
-        <img src={Poster} alt="movie poster" className="z-10 max-h-[350px]" />
+        <Image
+          src={Poster}
+          alt={`${Title} movie poster`}
+          width={300}
+          height={350}
+        />
       </div>
       <div className="mt-4 flex flex-col gap-4">
         <div className="text-xl font-semibold">{Title}</div>
