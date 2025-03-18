@@ -2,6 +2,7 @@ import MovieItem from "@/components/movie-item";
 import MovieItemSkeleton from "@/components/skeleton/movie-item-skeleton";
 import MovieListSkeleton from "@/components/skeleton/movie-list.skeleton";
 import { MovieData } from "@/types";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
 // { cache : "no-store" } - 데이터 페칭의 결과를 저장하지 않는 옵션. 즉, 캐싱을 아예 하지 않도록 하는 설정 - 기본값
@@ -48,6 +49,16 @@ async function HotMovies() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Movie Info",
+  description: "Movie Info Practice by Next",
+  openGraph: {
+    title: "",
+    description: "",
+    images: [], // public directory
+  },
+};
 
 export default function Home() {
   return (

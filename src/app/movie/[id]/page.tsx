@@ -5,9 +5,10 @@
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { ReviewData } from "@/types";
+import { MovieData, ReviewData } from "@/types";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
+import { Metadata } from "next";
 
 // export const dynamicParams = false;
 // 위 코드를 적용하면 빌드 시 생성된 파라미터 외엔 적용하지 않음
@@ -71,6 +72,28 @@ async function ReviewList({ id }: { id: string }) {
       ))}
     </section>
   );
+}
+
+// 동적 메타데이터 생성 및 조회 데이터 연결
+export async function generateMetada({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const { id } = params;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}&i=${id}`);
+  if (!response.ok) throw new Error(response.statusText);
+
+  const movie: MovieData = await response.json();
+  return {
+    title: `${movie.Title}`,
+    description: `${movie.Plot}`,
+    openGraph: {
+      title: `${movie.Title}`,
+      description: `${movie.Plot}`,
+      images: [movie.Poster],
+    },
+  };
 }
 
 export default function Page({ params }: { params: { id: string } }) {

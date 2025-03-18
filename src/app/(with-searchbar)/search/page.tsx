@@ -20,9 +20,10 @@ Revalidate 가능
 */
 
 import MovieItem from "@/components/movie-item";
-import MovieItemSkeleton from "@/components/skeleton/movie-item-skeleton";
 import MovieListSkeleton from "@/components/skeleton/movie-list.skeleton";
 import { MovieData } from "@/types";
+import { Metadata } from "next";
+import { title } from "process";
 import { Suspense } from "react";
 
 async function SearchResult({ q }: { q: string }) {
@@ -40,6 +41,25 @@ async function SearchResult({ q }: { q: string }) {
       <MovieItem key={movie.imdbID} {...movie} />
     </div>
   );
+}
+
+// 메타데이터 동적 생성
+export async function generateMetada({
+  searchParams,
+}: {
+  searchParams: { q?: string };
+}): Promise<Metadata> {
+  const { q } = await searchParams;
+
+  return {
+    title: `Movie by ${q}`,
+    description: `Search title : ${q} `,
+    openGraph: {
+      title: "",
+      description: "",
+      images: [],
+    },
+  };
 }
 
 export default function Page({
